@@ -1,3 +1,4 @@
+
 package hospital;
 
 import java.util.logging.Logger;
@@ -18,7 +19,7 @@ public class EmergencyQueue {
     // =========================
     public void enqueue(Patient patient) {
         queue.addLast(patient);
-        logger.info(() -> "Patient added to emergency queue.");
+        logger.info("Patient added to emergency queue.");
     }
 
     // =========================
@@ -27,13 +28,13 @@ public class EmergencyQueue {
     public Patient dequeue() {
 
         if (queue.isEmpty()) {
-            logger.info(() -> "Emergency queue is empty.");
+            logger.info("Emergency queue is empty.");
             return null;
         }
 
         Patient patient = queue.removeFirst();
 
-        logger.info(() -> "Patient sent for treatment:");
+        logger.info("Patient sent for treatment:");
         patient.displayPatient();
 
         return patient;
@@ -45,17 +46,16 @@ public class EmergencyQueue {
     public void displayQueue() {
 
         if (queue.isEmpty()) {
-            logger.info(() -> "Emergency queue is empty.");
+            logger.info("Emergency queue is empty.");
             return;
         }
 
-        logger.info(() -> "\n=== EMERGENCY WAITING QUEUE ===");
+        logger.info("\n=== EMERGENCY WAITING QUEUE ===");
 
         for (Patient patient : queue) {
-            logger.info(() ->
-                patient.patientId + " - " +
-                patient.patientName
-            );
+            if (logger.isLoggable(java.util.logging.Level.INFO)) {
+                logger.info(String.format("%d - %s", patient.patientId, patient.patientName));
+            }
         }
     }
 }
