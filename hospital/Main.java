@@ -12,6 +12,7 @@ public class Main {
     private static final String COUGH = "Cough";
     private static final String COLD = "Cold";
 
+
     public static void main() {
 
         BST bst = new BST();
@@ -76,7 +77,7 @@ public class Main {
         EmergencyQueue emergencyQueue = new EmergencyQueue();
 
         emergencyQueue.enqueue(new Patient(
-            1001,
+            1005,
             "Ahamed",
             25,
             "0771234567",
